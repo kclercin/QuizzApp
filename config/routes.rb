@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   constraints TeacherRouteConstraint.new do
     scope module: 'teachers' do
-      get 'dashboard' => "dashboard#index", as: :dashboard
+      get 'account' => "users#index", as: :account
+      resources :teacher_schools, only: [:index, :new, :update]
+      resources :schools, only: [:new, :update, :index, :create] do
+        resources :classes
+      end
     end
   end
 

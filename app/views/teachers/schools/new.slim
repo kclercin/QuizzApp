@@ -1,0 +1,10 @@
+.well
+  = simple_form_for @school, class: "form-horizontal" do |f|
+    = f.input :name
+    = f.input :address1
+    = f.input :address2
+    = f.input :city
+    = f.input :postcode
+    .pull-right
+      = f.submit "Enregistrer", class: "btn btn-success"
+    .clearfix

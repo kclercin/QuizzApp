@@ -6,4 +6,29 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = yield
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed type='button' data-toggle="collapse" data-target="#topnav"
+            span.sr-only
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          = link_to account_url, class: "navbar-brand"
+            = t :site_title
+
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            - if current_user.admin_of_schools.any?
+              - School.where(id: current_user.admin_of_schools).limit(4).each do |school|
+                li.dropdown
+                  a.dropdown-toggle href="#" role="button" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"
+                    = school.name
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      = link_to school_classes_path(school)
+                        | Liste des classes
+
+    .container
+      = yield

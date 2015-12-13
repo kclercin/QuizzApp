@@ -1,0 +1,13 @@
+- unless current_user.schools.any?
+  .well
+    .row
+      .col-xs-12
+        | Merci de vous inscrire dans votre établissement scolaire avant de continuer
+    .row
+      .col-xs-12
+        .col-xs-12.col-md-5
+          = link_to new_school_path, class: "btn btn-info" do
+            | Mon établissement ne possède pas encore d'espace
+        .col-xs-12.col-md-5
+          = link_to schools_path, class: "btn btn-info" do
+            | Mon établissement possède déjà un espace

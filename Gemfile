@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'factory_girl_rails'
+  gem "rspec"
 end
 
 group :development do
