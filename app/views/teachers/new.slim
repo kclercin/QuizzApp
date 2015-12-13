@@ -1,0 +1,14 @@
+.row
+  .col-xs-12.col-sm-12.col-md-6
+    .panel.panel-default
+      .panel-heading
+        | Création d'un compte enseignant
+      .panel-body
+        = simple_form_for @teacher, class: "horizontal-form" do |f|
+          = f.input :email
+          = f.input :login
+          = f.input :password
+          = f.input :password_confirmation
+          .pull-right
+            = f.submit "Enregistrer", class: "btn btn-success"
+        .clearfix

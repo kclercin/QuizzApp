@@ -1,0 +1,18 @@
+.row
+  .col-xs-12.col-md-6
+    .panel.panel-default
+      .panel-heading
+        | Espace enseignants
+      .panel-body
+        = simple_form_for @user_session, class: "horizontal-form" do |f|
+          = f.input :login
+          = f.input :password
+          .pull-left
+            = link_to "M'inscrire", new_teacher_path
+          .pull-right
+            = f.submit "Connexion", class: "btn btn-success"
+
+      .clearfix
+.row
+  .col-xs-12
+    = link_to "Espace élèves", root_url
